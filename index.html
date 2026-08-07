@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeeson & Sandra - Kerala Christian Wedding Invitation</title>
+
+  <!-- Meta Tags for WhatsApp & Social Media Preview -->
+  <meta name="description" content="We joyfully invite you to celebrate the Sacrament of Holy Matrimony of Jeeson & Sandra. Check event dates, venues, directions, and RSVP.">
+  <meta property="og:title" content="Jeeson & Sandra's Wedding Invitation">
+  <meta property="og:description" content="Save the Date: Sunday, 20th September 2026. Click to open our interactive wedding invitation card.">
+  <meta property="og:image" content="assets/wedding_couple.png">
+  <meta property="og:type" content="website">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Background Decorative Sparkle Layer -->
+  <div class="bg-ornament-layer"></div>
+
+  <!-- 1. ENVELOPE OPENING OVERLAY -->
+  <div id="envelope-modal">
+    <div class="envelope-card">
+      <div class="envelope-cross">✝</div>
+      <h2 class="envelope-title" id="envelope-names">Jeeson & Sandra</h2>
+      <p class="envelope-subtitle">Solicit your prayers & presence</p>
+
+      <button id="wax-seal-btn" class="wax-seal-btn" title="Click to Open Invitation">
+        <span style="font-size: 1.5rem;">💌</span>
+        <span>Open</span>
+      </button>
+
+      <p style="margin-top: 20px; font-size: 0.85rem; color: var(--text-muted); font-style: italic;">
+        Tap the wax seal to unseal the invitation
+      </p>
+    </div>
+  </div>
+
+  <!-- 2. FLOATING CONTROL NAVIGATION -->
+  <header class="nav-header">
+    <a href="#" class="nav-brand">J & S</a>
+    <ul class="nav-links">
+      <li><a href="#couple">The Couple</a></li>
+      <li><a href="#events">Events & Venues</a></li>
+      <li><a href="#traditions">Traditions</a></li>
+      <li><a href="#rsvp">RSVP</a></li>
+      <li><a href="#guestbook">Wishes</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button id="audio-toggle-btn" class="btn-icon" title="Toggle Music">🎵</button>
+      <button id="theme-toggle-btn" class="btn-icon" title="Toggle Dark/Light Mode">🌙</button>
+    </div>
+  </header>
+
+  <!-- 3. HERO SECTION -->
+  <section class="hero-section" id="home">
+    <div class="container hero-content">
+      <div class="cross-symbol">✝</div>
+      <blockquote class="bible-quote">
+        <p id="bible-quote-text">"So they are no longer two, but one flesh. Therefore what God has joined together, let no one separate."</p>
+        <footer id="bible-quote-citation" style="margin-top: 8px; font-weight: 600;">— Matthew 19:6</footer>
+      </blockquote>
+
+      <p style="text-transform: uppercase; letter-spacing: 3px; font-size: 0.9rem; color: var(--text-gold); font-weight: 600; margin-bottom: 10px;">
+        Together with their families
+      </p>
+
+      <h1 class="couple-names" id="hero-couple-names">Jeeson & Sandra</h1>
+      
+      <p class="hero-tagline">Invite you to celebrate their Holy Matrimony</p>
+      
+      <p id="hero-display-date" style="font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; color: var(--text-dark);">
+        Sunday, 22nd November 2026
+      </p>
+
+      <!-- Countdown Timer -->
+      <div class="countdown-container">
+        <div class="countdown-box">
+          <span class="countdown-value" id="days">00</span>
+          <div class="countdown-label">Days</div>
+        </div>
+        <div class="countdown-box">
+          <span class="countdown-value" id="hours">00</span>
+          <div class="countdown-label">Hours</div>
+        </div>
+        <div class="countdown-box">
+          <span class="countdown-value" id="minutes">00</span>
+          <div class="countdown-label">Mins</div>
+        </div>
+        <div class="countdown-box">
+          <span class="countdown-value" id="seconds">00</span>
+          <div class="countdown-label">Secs</div>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+        <a href="#rsvp" class="btn-primary">💌 Confirm Attendance (RSVP)</a>
+        <a href="#events" class="btn-secondary">📍 View Venues & Schedule</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. COUPLE PROFILE SECTION -->
+  <section class="couple-section" id="couple">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Meet the Bride & Groom</span>
+        <h2 class="section-title">The Couple</h2>
+        <div class="filigree-divider">✦ ✝ ✦</div>
+      </div>
+
+      <div class="couple-grid">
+        <div id="groom-card" class="person-card"></div>
+        <div class="ampersand-divider">&</div>
+        <div id="bride-card" class="person-card"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. EVENTS SCHEDULE & VENUES SECTION -->
+  <section class="events-section" id="events">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Sacred Celebrations</span>
+        <h2 class="section-title">Wedding Schedule & Venues</h2>
+        <div class="filigree-divider">✦ ✝ ✦</div>
+      </div>
+
+      <div class="events-grid" id="events-grid"></div>
+    </div>
+  </section>
+
+  <!-- 6. KERALA CHRISTIAN TRADITIONS -->
+  <section class="traditions-section" id="traditions">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Heritage & Sacraments</span>
+        <h2 class="section-title">Traditional Wedding Rituals</h2>
+        <div class="filigree-divider">✦ ✝ ✦</div>
+      </div>
+
+      <div class="traditions-grid" id="traditions-grid"></div>
+    </div>
+  </section>
+
+  <!-- 7. RSVP SECTION -->
+  <section class="rsvp-section" id="rsvp">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Your Presence is Our Blessing</span>
+        <h2 class="section-title">Respond (RSVP)</h2>
+        <div class="filigree-divider">✦ ✝ ✦</div>
+      </div>
+
+      <div class="rsvp-wrapper">
+        <div id="rsvp-alert" style="display: none; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-size: 0.95rem; background: rgba(39, 174, 96, 0.1); border: 1px solid #27ae60; color: #1e8449;"></div>
+
+        <form id="rsvp-form">
+          <div class="form-group">
+            <label class="form-label" for="rsvp-name">Your Full Name *</label>
+            <input type="text" id="rsvp-name" class="form-input" placeholder="e.g. Thomas Varghese" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="rsvp-phone">WhatsApp / Phone Number *</label>
+            <input type="tel" id="rsvp-phone" class="form-input" placeholder="+91 98765 43210" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="rsvp-count">Number of Guests Attending *</label>
+            <select id="rsvp-count" class="form-select" required>
+              <option value="1">1 Person</option>
+              <option value="2">2 Persons</option>
+              <option value="3">3 Persons</option>
+              <option value="4">4+ Family</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="rsvp-diet">Dietary Preference</label>
+            <select id="rsvp-diet" class="form-select">
+              <option value="Non-Veg Feast">Traditional Kerala Non-Veg Feast</option>
+              <option value="Pure Veg Sadya">Pure Veg Sadya</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="rsvp-note">Wishes / Note for the Couple</label>
+            <textarea id="rsvp-note" class="form-textarea" rows="3" placeholder="Share a message or blessing..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+            ✨ Submit Confirmation
+          </button>
+        </form>
+
+        <div style="text-align: center; margin-top: 25px; border-top: 1px dashed var(--border-gold); padding-top: 15px;">
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px;">Are you the Bride or Groom?</p>
+          <button onclick="exportRsvpsToCsv()" class="btn-secondary" style="font-size: 0.85rem;">
+            📊 Download Guest Responses (CSV)
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. GUESTBOOK / WELL WISHES -->
+  <section class="guestbook-section" id="guestbook">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Prayers & Congratulations</span>
+        <h2 class="section-title">Digital Guestbook</h2>
+        <div class="filigree-divider">✦ ✝ ✦</div>
+      </div>
+
+      <div style="max-width: 550px; margin: 0 auto; background: var(--bg-card); padding: 25px; border-radius: 12px; border: 1px solid var(--border-gold);">
+        <form id="wish-form">
+          <div class="form-group">
+            <input type="text" id="wish-author" class="form-input" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <textarea id="wish-text" class="form-textarea" rows="2" placeholder="Write your heartfelt blessing..." required></textarea>
+          </div>
+          <button type="submit" class="btn-secondary" style="width: 100%; justify-content: center;">
+            💖 Post Blessing
+          </button>
+        </form>
+      </div>
+
+      <div class="wishes-wall" id="wishes-wall"></div>
+    </div>
+  </section>
+
+  <!-- 9. PHOTO GALLERY -->
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Moments of Joy</span>
+        <h2 class="section-title">Photo Gallery</h2>
+        <div class="filigree-divider">✦ ✝ ✦</div>
+      </div>
+
+      <div class="gallery-grid" id="gallery-grid"></div>
+    </div>
+  </section>
+
+  <!-- 10. FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="cross-symbol" style="font-size: 1.8rem;">✝</div>
+      <h3 class="footer-names">Jeeson & Sandra</h3>
+      <p style="font-family: var(--font-serif); font-size: 1.1rem; color: var(--text-gold); margin-top: 5px;">
+        "Love is patient, love is kind." — 1 Corinthians 13:4
+      </p>
+      <p class="footer-text">Created with ❤️ for your special day • Host live on Vercel / Netlify / GitHub Pages</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
