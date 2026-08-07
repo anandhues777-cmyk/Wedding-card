@@ -27,6 +27,13 @@ function renderHeaderAndHero() {
 
   document.title = `${coupleTitle} - Kerala Christian Wedding Invitation`;
   
+  // Set absolute URL for social image previews (WhatsApp requires full https:// URL)
+  const fullImgUrl = `${window.location.origin}/${WEDDING_CONFIG.groom.image || 'assets/wedding_couple.png'}`;
+  const ogImgEl = document.getElementById("og-image-meta");
+  if (ogImgEl) ogImgEl.setAttribute("content", fullImgUrl);
+  const twImgEl = document.getElementById("twitter-image-meta");
+  if (twImgEl) twImgEl.setAttribute("content", fullImgUrl);
+
   // Set navbar brand & footer names
   const navBrandEl = document.querySelector(".nav-brand");
   if (navBrandEl) navBrandEl.textContent = brandInitials;
