@@ -615,48 +615,6 @@ h1, h2, h3, h4 {
   gap: 10px;
 }
 
-/* TRADITIONS SECTION */
-.traditions-section {
-  padding: 90px 0;
-}
-
-.traditions-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 25px;
-}
-
-.tradition-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-gold);
-  border-radius: var(--radius-md);
-  padding: 30px 20px;
-  text-align: center;
-  box-shadow: var(--shadow-card);
-  transition: var(--transition);
-}
-
-.tradition-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--accent-gold);
-}
-
-.tradition-icon {
-  font-size: 2.8rem;
-  margin-bottom: 15px;
-}
-
-.tradition-title {
-  font-size: 1.4rem;
-  color: var(--accent-burgundy);
-  margin-bottom: 10px;
-}
-
-.tradition-desc {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
-
 /* CROSS SVG STYLING */
 .cross-svg {
   display: inline-block;

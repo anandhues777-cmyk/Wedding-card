@@ -10,7 +10,6 @@ function initApp() {
   renderHeaderAndHero();
   renderCouple();
   renderEvents();
-  renderTraditions();
   renderGallery();
   setupCountdown();
   setupAudioPlayer();
@@ -130,23 +129,7 @@ function renderEvents() {
   `).join('');
 }
 
-// 4. Render Traditions Visual Guide
-function renderTraditions() {
-  const container = document.getElementById("traditions-grid");
-  if (!container) return;
-
-  const crossSvgHtml = `<svg class="cross-svg" viewBox="0 0 24 32" width="24" height="32" fill="currentColor"><path d="M9.5 0h5v8.5h8.5v5h-8.5v18.5h-5v-18.5h-8.5v-5h8.5z"/></svg>`;
-
-  container.innerHTML = WEDDING_CONFIG.traditions.map(t => `
-    <div class="tradition-card">
-      <div class="tradition-icon">${t.icon.includes('✝') ? crossSvgHtml : t.icon}</div>
-      <h4 class="tradition-title">${t.title}</h4>
-      <p class="tradition-desc">${t.description}</p>
-    </div>
-  `).join('');
-}
-
-// 5. Render Photo Gallery
+// 4. Render Photo Gallery
 function renderGallery() {
   const container = document.getElementById("gallery-grid");
   if (!container) return;

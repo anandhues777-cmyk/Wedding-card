@@ -66,30 +66,6 @@ const WEDDING_CONFIG = {
     }
   ],
 
-  // Traditional Kerala Christian Ritual Highlights
-  traditions: [
-    {
-      title: "Thaali Kettu & Minnu",
-      icon: "✝️",
-      description: "The groom ties the sacred Minnu (a gold pendant embossed with 21 tiny beads forming a cross) around the bride's neck, symbolizing eternal union in Christ."
-    },
-    {
-      title: "Manthrakodi",
-      icon: "👰‍♀️",
-      description: "The groom places the blessed Manthrakodi (rich silk sari) over the bride's head, signifying his pledge to protect, honor, and care for her for life."
-    },
-    {
-      title: "Madhuram Veppu",
-      icon: "🍯",
-      description: "A cherished eve tradition where elders bless the bride and groom by feeding them sweet plantain and milk-honey mixture amid joyful songs."
-    },
-    {
-      title: "Crowning Ceremony",
-      icon: "👑",
-      description: "The priest crowns the couple during the Orthodox / Syrian liturgy, declaring them king and queen of their new Christian home."
-    }
-  ],
-
   // Gallery Images
   gallery: [
     { src: "images/NEL00146%20(1).jpg", caption: "Engagement Blessing" },
