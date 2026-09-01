@@ -12,11 +12,9 @@ function initApp() {
   renderEvents();
   renderTraditions();
   renderGallery();
-  renderGuestbook();
   setupCountdown();
   setupAudioPlayer();
   setupThemeToggle();
-  setupFormHandlers();
   setupEnvelopeModal();
 }
 
@@ -298,107 +296,6 @@ function setupThemeToggle() {
     localStorage.setItem("wedding_theme", next);
     themeBtn.textContent = next === "dark" ? "☀️" : "🌙";
   });
-}
-
-// 10. Form Handlers & LocalStorage persistence + WhatsApp sharing
-function setupFormHandlers() {
-  const wishForm = document.getElementById("wish-form");
-  const whatsappBtn = document.getElementById("whatsapp-wish-btn");
-
-  if (wishForm) {
-    wishForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const author = document.getElementById("wish-author").value.trim();
-      const wishText = document.getElementById("wish-text").value.trim();
-
-      if (!author || !wishText) return;
-
-      const wishes = JSON.parse(localStorage.getItem("wedding_wishes") || "[]");
-      const newWish = { 
-        id: Date.now(),
-        author, 
-        text: wishText, 
-        time: "Just now" 
-      };
-      wishes.unshift(newWish);
-      localStorage.setItem("wedding_wishes", JSON.stringify(wishes));
-
-      renderGuestbook();
-      wishForm.reset();
-      createFloatingHeart();
-    });
-  }
-
-  if (whatsappBtn) {
-    whatsappBtn.addEventListener("click", () => {
-      const author = document.getElementById("wish-author").value.trim();
-      const wishText = document.getElementById("wish-text").value.trim();
-
-      if (!author || !wishText) {
-        alert("Please enter your name and message first!");
-        return;
-      }
-
-      // Save wish locally first
-      const wishes = JSON.parse(localStorage.getItem("wedding_wishes") || "[]");
-      wishes.unshift({ 
-        id: Date.now(),
-        author, 
-        text: wishText, 
-        time: "Just now" 
-      });
-      localStorage.setItem("wedding_wishes", JSON.stringify(wishes));
-
-      renderGuestbook();
-      if (wishForm) wishForm.reset();
-      createFloatingHeart();
-
-      // Open WhatsApp with pre-filled text
-      const textMessage = `*Wedding Blessing for Jeeson & Sandra* 💍\n\n"${wishText}"\n\n— *${author}*`;
-      const phone = WEDDING_CONFIG.coupleWhatsapp ? WEDDING_CONFIG.coupleWhatsapp.replace(/[^0-9]/g, '') : '';
-      const waUrl = phone 
-        ? `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(textMessage)}`
-        : `https://api.whatsapp.com/send?text=${encodeURIComponent(textMessage)}`;
-      window.open(waUrl, "_blank");
-    });
-  }
-}
-
-// Render Guestbook
-function renderGuestbook() {
-  const container = document.getElementById("wishes-wall");
-  if (!container) return;
-
-  const defaultWishes = [
-    { id: 1, author: "Uncle Joseph & Family", text: "May God bless your union with endless love, peace, and togetherness!", time: "Yesterday", isDefault: true },
-    { id: 2, author: "Anish & Priya", text: "Wishing you both a joyful married life ahead! Can't wait for the celebrations!", time: "2 days ago", isDefault: true }
-  ];
-
-  const saved = JSON.parse(localStorage.getItem("wedding_wishes") || "[]");
-  const allWishes = [...saved, ...defaultWishes];
-
-  container.innerHTML = allWishes.map(w => `
-    <div class="wish-card">
-      <div class="wish-header">
-        <span class="wish-author">${w.author}</span>
-        <span class="wish-time">${w.time || ''}</span>
-      </div>
-      <p class="wish-quote">"${w.text}"</p>
-      <div class="wish-footer">
-        <a href="https://api.whatsapp.com/send?text=${encodeURIComponent('*Wedding Blessing for Jeeson & Sandra* 💍\n\n"' + w.text + '"\n\n— *' + w.author + '*')}" target="_blank" rel="noopener" class="wish-whatsapp-link">
-          💬 Share on WhatsApp
-        </a>
-        ${!w.isDefault ? `<button onclick="deleteWish(${w.id})" class="wish-delete-btn" title="Delete this wish">🗑️ Delete</button>` : ''}
-      </div>
-    </div>
-  `).join('');
-}
-
-function deleteWish(id) {
-  let wishes = JSON.parse(localStorage.getItem("wedding_wishes") || "[]");
-  wishes = wishes.filter(w => w.id !== id);
-  localStorage.setItem("wedding_wishes", JSON.stringify(wishes));
-  renderGuestbook();
 }
 
 // Download .ics Calendar File generator
