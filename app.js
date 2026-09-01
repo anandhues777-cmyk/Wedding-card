@@ -301,45 +301,6 @@ function setupThemeToggle() {
 
 // 10. Form Handlers & LocalStorage persistence
 function setupFormHandlers() {
-  const rsvpForm = document.getElementById("rsvp-form");
-  if (rsvpForm) {
-    rsvpForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      
-      const guestName = document.getElementById("rsvp-name").value;
-      const guestPhone = document.getElementById("rsvp-phone").value;
-      const guestCount = document.getElementById("rsvp-count").value;
-      const foodPref = document.getElementById("rsvp-diet").value;
-      const note = document.getElementById("rsvp-note").value;
-
-      const newResponse = {
-        id: Date.now(),
-        name: guestName,
-        phone: guestPhone,
-        count: guestCount,
-        diet: foodPref,
-        note: note,
-        timestamp: new Date().toLocaleString()
-      };
-
-      // Save to localStorage
-      const existing = JSON.parse(localStorage.getItem("wedding_rsvps") || "[]");
-      existing.push(newResponse);
-      localStorage.setItem("wedding_rsvps", JSON.stringify(existing));
-
-      // Visual Feedback
-      const alertBox = document.getElementById("rsvp-alert");
-      if (alertBox) {
-        alertBox.style.display = "block";
-        alertBox.className = "alert alert-success";
-        alertBox.innerHTML = `<strong>Thank You, ${guestName}!</strong> Your RSVP has been confirmed. We look forward to celebrating with you!`;
-      }
-
-      rsvpForm.reset();
-      createFloatingHeart();
-    });
-  }
-
   const wishForm = document.getElementById("wish-form");
   if (wishForm) {
     wishForm.addEventListener("submit", (e) => {
@@ -403,28 +364,6 @@ END:VCALENDAR`;
   const link = document.createElement("a");
   link.href = url;
   link.setAttribute("download", `${ev.id}-wedding-event.ics`);
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-}
-
-// Export RSVP list to CSV for couple
-function exportRsvpsToCsv() {
-  const rsvps = JSON.parse(localStorage.getItem("wedding_rsvps") || "[]");
-  if (rsvps.length === 0) {
-    alert("No RSVPs received yet.");
-    return;
-  }
-
-  let csvContent = "data:text/csv;charset=utf-8,Name,Phone,Guest Count,Diet Preference,Notes,Date Submitted\n";
-  rsvps.forEach(r => {
-    csvContent += `"${r.name}","${r.phone}","${r.count}","${r.diet}","${r.note}","${r.timestamp}"\n`;
-  });
-
-  const encodedUri = encodeURI(csvContent);
-  const link = document.createElement("a");
-  link.setAttribute("href", encodedUri);
-  link.setAttribute("download", `RSVP_Guest_List_${WEDDING_CONFIG.hashtag}.csv`);
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);

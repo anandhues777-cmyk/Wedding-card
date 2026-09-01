@@ -38,18 +38,6 @@ const WEDDING_CONFIG = {
   // Events Schedule
   events: [
     {
-      id: "madhuram-veppu",
-      title: "Madhuram Veppu",
-      subtitle: "Traditional Eve Ceremony & Sweet Blessings",
-      date: "Saturday, 19th September 2026",
-      time: "6:00 PM IST Onwards",
-      venue: "Joseph Family Residence",
-      address: "Puthuvype, Kochi, Kerala",
-      googleMapsUrl: "https://maps.google.com/?q=Puthuvype+Kochi",
-      badge: "Eve Ceremony",
-      description: "Join us for an evening of prayer, traditional songs, sweet distribution (Madhuram), and family festivities before the big day."
-    },
-    {
       id: "holy-matrimony",
       title: "Sacrament of Holy Matrimony",
       subtitle: "Church Wedding Mass & Nuptial Blessing",
@@ -103,15 +91,9 @@ const WEDDING_CONFIG = {
   // Gallery Images
   gallery: [
     { src: "images/NEL00146%20(1).jpg", caption: "Engagement Blessing" },
-    { src: "assets/kerala_church.png", caption: "Our Sacred Church Venue" },
-    { src: "assets/wedding_couple.png", caption: "Together in Faith & Love" }
+    { src: "images/image2.jpg", caption: "Our Sacred Church Venue" },
+    { src: "images/image3.jpg", caption: "Together in Faith & Love" }
   ],
 
-  // RSVP Contact Details
-  rsvpContact: {
-    phone: "+91 98765 43210",
-    whatsapp: "+919876543210",
-    email: "rohanandsandra2026@gmail.com",
-    deadline: "1st November 2026"
-  }
+  // Guestbook wishes are managed locally in the app.
 };
