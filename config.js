@@ -48,7 +48,7 @@ const WEDDING_CONFIG = {
       address: "Puthuvype, Kochi, Kerala",
       googleMapsUrl: "https://maps.google.com/?q=Christ+the+King+Church+Puthuvype",
       badge: "Sacred Ceremony",
-      image: "assets/kerala_church.png",
+      image: "images/churuch.jpg",
       description: "Witness the sacred exchange of vows, Thaali Kettu, blessing of the Manthrakodi, and Holy Mass."
     },
     {
