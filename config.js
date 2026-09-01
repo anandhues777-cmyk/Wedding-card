@@ -43,7 +43,7 @@ const WEDDING_CONFIG = {
       title: "Sacrament of Holy Matrimony",
       subtitle: "Church Wedding Mass & Nuptial Blessing",
       date: "Sunday, 20th September 2026",
-      time: "10:00 AM IST (Guest Arrival 9:30 AM)",
+      time: "11:00 AM IST (Guest Arrival 10:30 AM)",
       venue: "Christ the King Roman Catholic Church",
       address: "Puthuvype, Kochi, Kerala",
       googleMapsUrl: "https://maps.google.com/?q=Christ+the+King+Church+Puthuvype",
@@ -56,10 +56,10 @@ const WEDDING_CONFIG = {
       title: "Wedding Reception & Celebration",
       subtitle: "Grand Feast, Music & Joy",
       date: "Sunday, 20th September 2026",
-      time: "1:00 PM IST Onwards",
-      venue: "Bolgatty Palace & Island Resort",
-      address: "Mulavukad, Kochi, Kerala",
-      googleMapsUrl: "https://maps.google.com/?q=Bolgatty+Palace+Kochi",
+      time: "12:30 PM IST Onwards",
+      venue: "Ochanthuruth Service Bank Auditorium",
+      address: "Puthuvype, Kochi, Kerala",
+      googleMapsUrl: "https://maps.google.com/?q=Ochanthuruth+Service+Bank+Auditorium",
       badge: "Grand Banquet",
       description: "Celebrate with us over traditional Kerala Christian feast (Sadya & delicacies), cake cutting, live music, and joy!"
     }
