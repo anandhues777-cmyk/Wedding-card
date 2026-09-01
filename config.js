@@ -61,7 +61,7 @@ const WEDDING_CONFIG = {
       address: "Puthuvype, Kochi, Kerala",
       googleMapsUrl: "https://maps.google.com/?q=Ochanthuruth+Service+Bank+Auditorium",
       badge: "Grand Banquet",
-      image: "images/image4.jpg",
+      image: "images/reception.jpg",
       description: "Celebrate with us over traditional Kerala Christian feast (Sadya & delicacies), cake cutting, live music, and joy!"
     }
   ],
