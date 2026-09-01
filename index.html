@@ -11,7 +11,7 @@
   <!-- OpenGraph / Facebook / WhatsApp -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Jeeson & Sandra Wedding">
-  <meta property="og:title" content="💍 Jeeson & Sandra's Wedding Invitation ✝️">
+  <meta property="og:title" content="💍 Jeeson & Sandra's Wedding Invitation">
   <meta property="og:description" content="Save the Date: Sunday, 20th September 2026. Tap to open our interactive wedding invitation card and explore the celebration.">
   <meta property="og:image" content="assets/wedding_couple.png" id="og-image-meta">
   <meta property="og:image:type" content="image/png">
@@ -20,7 +20,7 @@
 
   <!-- Twitter / Telegram Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="💍 Jeeson & Sandra's Wedding Invitation ✝️">
+  <meta name="twitter:title" content="💍 Jeeson & Sandra's Wedding Invitation">
   <meta name="twitter:description" content="Save the Date: Sunday, 20th September 2026. Tap to open our interactive wedding invitation card.">
   <meta name="twitter:image" content="assets/wedding_couple.png" id="twitter-image-meta">
 
@@ -35,7 +35,11 @@
   <!-- 1. ENVELOPE OPENING OVERLAY -->
   <div id="envelope-modal">
     <div class="envelope-card">
-      <div class="envelope-cross">✝</div>
+      <div class="envelope-cross">
+        <svg class="cross-svg" viewBox="0 0 24 32" width="36" height="48" fill="currentColor">
+          <path d="M9.5 0h5v8.5h8.5v5h-8.5v18.5h-5v-18.5h-8.5v-5h8.5z"/>
+        </svg>
+      </div>
       <h2 class="envelope-title" id="envelope-names">Jeeson & Sandra</h2>
       <p class="envelope-subtitle">Solicit your prayers & presence</p>
 
@@ -68,7 +72,11 @@
   <!-- 3. HERO SECTION -->
   <section class="hero-section" id="home">
     <div class="container hero-content">
-      <div class="cross-symbol">✝</div>
+      <div class="cross-symbol">
+        <svg class="cross-svg" viewBox="0 0 24 32" width="32" height="42" fill="currentColor">
+          <path d="M9.5 0h5v8.5h8.5v5h-8.5v18.5h-5v-18.5h-8.5v-5h8.5z"/>
+        </svg>
+      </div>
       <blockquote class="bible-quote">
         <p id="bible-quote-text">"So they are no longer two, but one flesh. Therefore what God has joined together, let no one separate."</p>
         <footer id="bible-quote-citation" style="margin-top: 8px; font-weight: 600;">— Matthew 19:6</footer>
@@ -118,7 +126,13 @@
       <div class="section-header">
         <span class="section-subtitle">Meet the Bride & Groom</span>
         <h2 class="section-title">The Couple</h2>
-        <div class="filigree-divider">✦ ✝ ✦</div>
+        <div class="filigree-divider">
+          <span>✦</span>
+          <svg class="cross-svg" viewBox="0 0 24 32" width="16" height="21" fill="currentColor">
+            <path d="M9.5 0h5v8.5h8.5v5h-8.5v18.5h-5v-18.5h-8.5v-5h8.5z"/>
+          </svg>
+          <span>✦</span>
+        </div>
       </div>
 
       <div class="couple-grid">
@@ -135,7 +149,13 @@
       <div class="section-header">
         <span class="section-subtitle">Sacred Celebrations</span>
         <h2 class="section-title">Wedding Schedule & Venues</h2>
-        <div class="filigree-divider">✦ ✝ ✦</div>
+        <div class="filigree-divider">
+          <span>✦</span>
+          <svg class="cross-svg" viewBox="0 0 24 32" width="16" height="21" fill="currentColor">
+            <path d="M9.5 0h5v8.5h8.5v5h-8.5v18.5h-5v-18.5h-8.5v-5h8.5z"/>
+          </svg>
+          <span>✦</span>
+        </div>
       </div>
 
       <div class="events-grid" id="events-grid"></div>
@@ -148,7 +168,13 @@
       <div class="section-header">
         <span class="section-subtitle">Heritage & Sacraments</span>
         <h2 class="section-title">Traditional Wedding Rituals</h2>
-        <div class="filigree-divider">✦ ✝ ✦</div>
+        <div class="filigree-divider">
+          <span>✦</span>
+          <svg class="cross-svg" viewBox="0 0 24 32" width="16" height="21" fill="currentColor">
+            <path d="M9.5 0h5v8.5h8.5v5h-8.5v18.5h-5v-18.5h-8.5v-5h8.5z"/>
+          </svg>
+          <span>✦</span>
+        </div>
       </div>
 
       <div class="traditions-grid" id="traditions-grid"></div>
@@ -161,20 +187,33 @@
       <div class="section-header">
         <span class="section-subtitle">Prayers & Congratulations</span>
         <h2 class="section-title">Digital Guestbook</h2>
-        <div class="filigree-divider">✦ ✝ ✦</div>
+        <div class="filigree-divider">
+          <span>✦</span>
+          <svg class="cross-svg" viewBox="0 0 24 32" width="16" height="21" fill="currentColor">
+            <path d="M9.5 0h5v8.5h8.5v5h-8.5v18.5h-5v-18.5h-8.5v-5h8.5z"/>
+          </svg>
+          <span>✦</span>
+        </div>
       </div>
 
-      <div style="max-width: 550px; margin: 0 auto; background: var(--bg-card); padding: 25px; border-radius: 12px; border: 1px solid var(--border-gold);">
+      <div class="guestbook-card-container">
         <form id="wish-form">
           <div class="form-group">
-            <input type="text" id="wish-author" class="form-input" placeholder="Your Name" required>
+            <label class="form-label" for="wish-author">Your Name *</label>
+            <input type="text" id="wish-author" class="form-input" placeholder="e.g. Uncle Joseph & Family" required>
           </div>
           <div class="form-group">
-            <textarea id="wish-text" class="form-textarea" rows="2" placeholder="Write your heartfelt blessing..." required></textarea>
+            <label class="form-label" for="wish-text">Your Blessing or Message *</label>
+            <textarea id="wish-text" class="form-textarea" rows="3" placeholder="Write your heartfelt prayers or congratulations for Jeeson & Sandra..." required></textarea>
           </div>
-          <button type="submit" class="btn-secondary" style="width: 100%; justify-content: center;">
-            💖 Post Blessing
-          </button>
+          <div class="guestbook-actions">
+            <button type="submit" class="btn-primary" style="flex: 1; justify-content: center;">
+              💖 Post Blessing
+            </button>
+            <button type="button" id="whatsapp-wish-btn" class="btn-whatsapp" style="flex: 1; justify-content: center;">
+              💬 Send via WhatsApp
+            </button>
+          </div>
         </form>
       </div>
 
@@ -188,7 +227,13 @@
       <div class="section-header">
         <span class="section-subtitle">Moments of Joy</span>
         <h2 class="section-title">Photo Gallery</h2>
-        <div class="filigree-divider">✦ ✝ ✦</div>
+        <div class="filigree-divider">
+          <span>✦</span>
+          <svg class="cross-svg" viewBox="0 0 24 32" width="16" height="21" fill="currentColor">
+            <path d="M9.5 0h5v8.5h8.5v5h-8.5v18.5h-5v-18.5h-8.5v-5h8.5z"/>
+          </svg>
+          <span>✦</span>
+        </div>
       </div>
 
       <div class="gallery-grid" id="gallery-grid"></div>
@@ -198,12 +243,16 @@
   <!-- 9. FOOTER -->
   <footer class="footer">
     <div class="container">
-      <div class="cross-symbol" style="font-size: 1.8rem;">✝</div>
+      <div class="cross-symbol">
+        <svg class="cross-svg" viewBox="0 0 24 32" width="24" height="32" fill="currentColor">
+          <path d="M9.5 0h5v8.5h8.5v5h-8.5v18.5h-5v-18.5h-8.5v-5h8.5z"/>
+        </svg>
+      </div>
       <h3 class="footer-names">Jeeson & Sandra</h3>
       <p style="font-family: var(--font-serif); font-size: 1.1rem; color: var(--text-gold); margin-top: 5px;">
         "Love is patient, love is kind." — 1 Corinthians 13:4
       </p>
-      <p class="footer-text">Created with ❤️ for your special day • Host live on Vercel / Netlify / GitHub Pages</p>
+      <p class="footer-text">Created with ❤️ for your special day</p>
     </div>
   </footer>
 

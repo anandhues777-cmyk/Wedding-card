@@ -12,7 +12,7 @@ const WEDDING_CONFIG = {
     parish: "Christ the King Roman Catholic Church,Puthuvype",
     hometown: "Kochi , Kerala",
     bio: "Software Architect & Travel Enthusiast",
-    image: "assets/wedding_couple.png"
+    image: "images/black1.jpg"
   },
   bride: {
     name: "Sandra C R",
@@ -21,13 +21,14 @@ const WEDDING_CONFIG = {
     parish: "St. Sebastin Church,Bolgatty",
     hometown: "Kochi, Kerala",
     bio: "Pediatric Dentist & Classical Musician",
-    image: "assets/wedding_couple.png"
+    image: "images/black2.jpg"
   },
 
   // Main Wedding Date (ISO format for live countdown)
   weddingDateISO: "2026-09-20T10:00:00+05:30",
   displayDate: "Sunday, 20th September 2026",
   hashtag: "#JeesonWedsSandra",
+  coupleWhatsapp: "", // Add phone number e.g. "+919876543210" to receive WhatsApp blessings directly
 
   // Bible Verse / Welcome Quote
   bibleVerse: {

@@ -137,9 +137,11 @@ function renderTraditions() {
   const container = document.getElementById("traditions-grid");
   if (!container) return;
 
+  const crossSvgHtml = `<svg class="cross-svg" viewBox="0 0 24 32" width="24" height="32" fill="currentColor"><path d="M9.5 0h5v8.5h8.5v5h-8.5v18.5h-5v-18.5h-8.5v-5h8.5z"/></svg>`;
+
   container.innerHTML = WEDDING_CONFIG.traditions.map(t => `
     <div class="tradition-card">
-      <div class="tradition-icon">${t.icon}</div>
+      <div class="tradition-icon">${t.icon.includes('✝') ? crossSvgHtml : t.icon}</div>
       <h4 class="tradition-title">${t.title}</h4>
       <p class="tradition-desc">${t.description}</p>
     </div>
@@ -235,7 +237,6 @@ function playAudio() {
   isPlayingAudio = true;
   if (audioBtn) audioBtn.innerHTML = "🎵";
 
-  // Web Audio Synth ambient wedding chime generator if no external audio file
   try {
     if (!audioContext) {
       audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -258,7 +259,7 @@ function stopAudio() {
 function playGentleChimePattern() {
   if (!isPlayingAudio || !audioContext) return;
   
-  const notes = [261.63, 329.63, 392.00, 523.25]; // C E G C
+  const notes = [261.63, 329.63, 392.00, 523.25];
   const note = notes[Math.floor(Math.random() * notes.length)];
   
   const osc = audioContext.createOscillator();
@@ -299,24 +300,66 @@ function setupThemeToggle() {
   });
 }
 
-// 10. Form Handlers & LocalStorage persistence
+// 10. Form Handlers & LocalStorage persistence + WhatsApp sharing
 function setupFormHandlers() {
   const wishForm = document.getElementById("wish-form");
+  const whatsappBtn = document.getElementById("whatsapp-wish-btn");
+
   if (wishForm) {
     wishForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      const author = document.getElementById("wish-author").value;
-      const wishText = document.getElementById("wish-text").value;
+      const author = document.getElementById("wish-author").value.trim();
+      const wishText = document.getElementById("wish-text").value.trim();
 
       if (!author || !wishText) return;
 
       const wishes = JSON.parse(localStorage.getItem("wedding_wishes") || "[]");
-      wishes.unshift({ author, text: wishText, time: "Just now" });
+      const newWish = { 
+        id: Date.now(),
+        author, 
+        text: wishText, 
+        time: "Just now" 
+      };
+      wishes.unshift(newWish);
       localStorage.setItem("wedding_wishes", JSON.stringify(wishes));
 
       renderGuestbook();
       wishForm.reset();
       createFloatingHeart();
+    });
+  }
+
+  if (whatsappBtn) {
+    whatsappBtn.addEventListener("click", () => {
+      const author = document.getElementById("wish-author").value.trim();
+      const wishText = document.getElementById("wish-text").value.trim();
+
+      if (!author || !wishText) {
+        alert("Please enter your name and message first!");
+        return;
+      }
+
+      // Save wish locally first
+      const wishes = JSON.parse(localStorage.getItem("wedding_wishes") || "[]");
+      wishes.unshift({ 
+        id: Date.now(),
+        author, 
+        text: wishText, 
+        time: "Just now" 
+      });
+      localStorage.setItem("wedding_wishes", JSON.stringify(wishes));
+
+      renderGuestbook();
+      if (wishForm) wishForm.reset();
+      createFloatingHeart();
+
+      // Open WhatsApp with pre-filled text
+      const textMessage = `*Wedding Blessing for Jeeson & Sandra* 💍\n\n"${wishText}"\n\n— *${author}*`;
+      const phone = WEDDING_CONFIG.coupleWhatsapp ? WEDDING_CONFIG.coupleWhatsapp.replace(/[^0-9]/g, '') : '';
+      const waUrl = phone 
+        ? `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(textMessage)}`
+        : `https://api.whatsapp.com/send?text=${encodeURIComponent(textMessage)}`;
+      window.open(waUrl, "_blank");
     });
   }
 }
@@ -327,8 +370,8 @@ function renderGuestbook() {
   if (!container) return;
 
   const defaultWishes = [
-    { author: "Uncle Joseph & Family", text: "May God bless your union with endless love, peace, and togetherness!", time: "Yesterday" },
-    { author: "Anish & Priya", text: "Wishing you both a joyful married life ahead! Can't wait for the celebrations!", time: "2 days ago" }
+    { id: 1, author: "Uncle Joseph & Family", text: "May God bless your union with endless love, peace, and togetherness!", time: "Yesterday", isDefault: true },
+    { id: 2, author: "Anish & Priya", text: "Wishing you both a joyful married life ahead! Can't wait for the celebrations!", time: "2 days ago", isDefault: true }
   ];
 
   const saved = JSON.parse(localStorage.getItem("wedding_wishes") || "[]");
@@ -336,10 +379,26 @@ function renderGuestbook() {
 
   container.innerHTML = allWishes.map(w => `
     <div class="wish-card">
+      <div class="wish-header">
+        <span class="wish-author">${w.author}</span>
+        <span class="wish-time">${w.time || ''}</span>
+      </div>
       <p class="wish-quote">"${w.text}"</p>
-      <p class="wish-author">— ${w.author}</p>
+      <div class="wish-footer">
+        <a href="https://api.whatsapp.com/send?text=${encodeURIComponent('*Wedding Blessing for Jeeson & Sandra* 💍\n\n"' + w.text + '"\n\n— *' + w.author + '*')}" target="_blank" rel="noopener" class="wish-whatsapp-link">
+          💬 Share on WhatsApp
+        </a>
+        ${!w.isDefault ? `<button onclick="deleteWish(${w.id})" class="wish-delete-btn" title="Delete this wish">🗑️ Delete</button>` : ''}
+      </div>
     </div>
   `).join('');
+}
+
+function deleteWish(id) {
+  let wishes = JSON.parse(localStorage.getItem("wedding_wishes") || "[]");
+  wishes = wishes.filter(w => w.id !== id);
+  localStorage.setItem("wedding_wishes", JSON.stringify(wishes));
+  renderGuestbook();
 }
 
 // Download .ics Calendar File generator
