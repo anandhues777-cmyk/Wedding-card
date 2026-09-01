@@ -102,7 +102,7 @@ const WEDDING_CONFIG = {
 
   // Gallery Images
   gallery: [
-    { src: "assets/wedding_couple.png", caption: "Engagement Blessing" },
+    { src: "images/NEL00146%20(1).jpg", caption: "Engagement Blessing" },
     { src: "assets/kerala_church.png", caption: "Our Sacred Church Venue" },
     { src: "assets/wedding_couple.png", caption: "Together in Faith & Love" }
   ],
