@@ -12,7 +12,7 @@ const WEDDING_CONFIG = {
     parish: "Christ the King Roman Catholic Church,Puthuvype",
     hometown: "Kochi , Kerala",
     bio: "Software Architect & Travel Enthusiast",
-    image: "images/black1.jpg"
+    image: "images/image5.jpg"
   },
   bride: {
     name: "Sandra C R",
