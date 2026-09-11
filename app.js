@@ -62,7 +62,7 @@ function renderCouple() {
   if (groomCard) {
     groomCard.innerHTML = `
       <div class="person-img-wrapper">
-        <img src="${WEDDING_CONFIG.groom.image}" alt="${WEDDING_CONFIG.groom.name}" class="person-img">
+        <img src="${WEDDING_CONFIG.groom.image}" alt="${WEDDING_CONFIG.groom.name}" class="person-img" loading="lazy" decoding="async">
       </div>
       <h3 class="person-name">${WEDDING_CONFIG.groom.name}</h3>
       <p class="person-parents">${WEDDING_CONFIG.groom.parents}</p>
@@ -75,7 +75,7 @@ function renderCouple() {
   if (brideCard) {
     brideCard.innerHTML = `
       <div class="person-img-wrapper">
-        <img src="${WEDDING_CONFIG.bride.image}" alt="${WEDDING_CONFIG.bride.name}" class="person-img">
+        <img src="${WEDDING_CONFIG.bride.image}" alt="${WEDDING_CONFIG.bride.name}" class="person-img" loading="lazy" decoding="async">
       </div>
       <h3 class="person-name">${WEDDING_CONFIG.bride.name}</h3>
       <p class="person-parents">${WEDDING_CONFIG.bride.parents}</p>
@@ -92,7 +92,7 @@ function renderEvents() {
 
   container.innerHTML = WEDDING_CONFIG.events.map(ev => `
     <div class="event-card">
-      ${ev.image ? `<img src="${ev.image}" alt="${ev.title}" class="event-banner">` : ''}
+      ${ev.image ? `<img src="${ev.image}" alt="${ev.title}" class="event-banner" loading="lazy" decoding="async">` : ''}
       <div class="event-body">
         <span class="event-badge">${ev.badge}</span>
         <h3 class="event-title">${ev.title}</h3>
@@ -136,7 +136,7 @@ function renderGallery() {
 
   container.innerHTML = WEDDING_CONFIG.gallery.map((g, idx) => `
     <div class="gallery-item" onclick="openLightbox(${idx})">
-      <img src="${g.src}" alt="${g.caption}" class="gallery-img">
+      <img src="${g.src}" alt="${g.caption}" class="gallery-img" loading="lazy" decoding="async">
       <div class="gallery-overlay">
         <div class="gallery-caption">${g.caption}</div>
       </div>

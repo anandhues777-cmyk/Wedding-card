@@ -499,6 +499,7 @@ h1, h2, h3, h4 {
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--bg-card-solid);
+  aspect-ratio: 1;
 }
 
 .person-name {
@@ -559,6 +560,8 @@ h1, h2, h3, h4 {
   height: 180px;
   width: 100%;
   object-fit: cover;
+  aspect-ratio: 16 / 10;
+  background: var(--bg-card);
 }
 
 .event-body {
@@ -646,6 +649,7 @@ h1, h2, h3, h4 {
   height: 240px;
   cursor: pointer;
   box-shadow: var(--shadow-card);
+  aspect-ratio: 7 / 6;
 }
 
 .gallery-img {
@@ -653,6 +657,7 @@ h1, h2, h3, h4 {
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
+  background: var(--bg-card);
 }
 
 .gallery-item:hover .gallery-img {
