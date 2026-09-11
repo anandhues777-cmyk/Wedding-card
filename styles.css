@@ -491,6 +491,27 @@ h1, h2, h3, h4 {
   padding: 6px;
   background: linear-gradient(135deg, var(--accent-gold), var(--accent-burgundy));
   box-shadow: var(--shadow-gold);
+  position: relative;
+  overflow: hidden;
+}
+
+.person-img-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--bg-card);
+  border-radius: 50%;
+  z-index: -1;
+  animation: fadeOut 0.3s ease-out 200ms forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 .person-img {
@@ -500,6 +521,21 @@ h1, h2, h3, h4 {
   object-fit: cover;
   border: 3px solid var(--bg-card-solid);
   aspect-ratio: 1;
+  display: block;
+  animation: fadeImageIn 0.6s ease-out forwards;
+  backface-visibility: hidden;
+  will-change: opacity, transform;
+  contain: layout style paint;
+  image-rendering: highQuality;
+}
+
+@keyframes fadeImageIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .person-name {

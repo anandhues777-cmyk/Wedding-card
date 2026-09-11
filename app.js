@@ -61,7 +61,7 @@ function renderCouple() {
   if (groomCard) {
     groomCard.innerHTML = `
       <div class="person-img-wrapper">
-        <img src="${WEDDING_CONFIG.groom.image}" alt="${WEDDING_CONFIG.groom.name}" class="person-img" loading="lazy" decoding="async">
+        <img src="${WEDDING_CONFIG.groom.image}" alt="${WEDDING_CONFIG.groom.name}" class="person-img" loading="lazy" decoding="async" fetchpriority="high">
       </div>
       <h3 class="person-name">${WEDDING_CONFIG.groom.name}</h3>
       <p class="person-parents">${WEDDING_CONFIG.groom.parents}</p>
@@ -74,7 +74,7 @@ function renderCouple() {
   if (brideCard) {
     brideCard.innerHTML = `
       <div class="person-img-wrapper">
-        <img src="${WEDDING_CONFIG.bride.image}" alt="${WEDDING_CONFIG.bride.name}" class="person-img" loading="lazy" decoding="async">
+        <img src="${WEDDING_CONFIG.bride.image}" alt="${WEDDING_CONFIG.bride.name}" class="person-img" loading="lazy" decoding="async" fetchpriority="high">
       </div>
       <h3 class="person-name">${WEDDING_CONFIG.bride.name}</h3>
       <p class="person-parents">${WEDDING_CONFIG.bride.parents}</p>
