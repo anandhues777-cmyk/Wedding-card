@@ -21,7 +21,7 @@ const WEDDING_CONFIG = {
     parish: "St. Sebastin Church,Bolgatty",
     hometown: "Kochi, Kerala",
     bio: "Pediatric Dentist & Classical Musician",
-    image: "images/black2.jpg"
+    image: "images/NEL00146%20(1).jpg"
   },
 
   // Main Wedding Date (ISO format for live countdown)
@@ -64,13 +64,6 @@ const WEDDING_CONFIG = {
       image: "images/reception.jpg",
       description: "Celebrate with us over traditional Kerala Christian feast (Sadya & delicacies), cake cutting, live music, and joy!"
     }
-  ],
-
-  // Gallery Images
-  gallery: [
-    { src: "images/NEL00146%20(1).jpg", caption: "Engagement Blessing" },
-    { src: "images/image2.jpg", caption: "Our Sacred Church Venue" },
-    { src: "images/image3.jpg", caption: "Together in Faith & Love" }
   ],
 
   // Guestbook wishes are managed locally in the app.

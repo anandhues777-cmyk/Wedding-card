@@ -10,7 +10,6 @@ function initApp() {
   renderHeaderAndHero();
   renderCouple();
   renderEvents();
-  renderGallery();
   setupCountdown();
   setupAudioPlayer();
   setupThemeToggle();
@@ -129,20 +128,6 @@ function renderEvents() {
   `).join('');
 }
 
-// 4. Render Photo Gallery
-function renderGallery() {
-  const container = document.getElementById("gallery-grid");
-  if (!container) return;
-
-  container.innerHTML = WEDDING_CONFIG.gallery.map((g, idx) => `
-    <div class="gallery-item" onclick="openLightbox(${idx})">
-      <img src="${g.src}" alt="${g.caption}" class="gallery-img" loading="lazy" decoding="async">
-      <div class="gallery-overlay">
-        <div class="gallery-caption">${g.caption}</div>
-      </div>
-    </div>
-  `).join('');
-}
 
 // 6. Countdown Timer Logic
 function setupCountdown() {
@@ -191,7 +176,6 @@ function setupEnvelopeModal() {
 
   sealBtn.addEventListener("click", () => {
     modal.classList.add("opened");
-    triggerConfetti();
     playAudio();
   });
 }
@@ -306,32 +290,4 @@ END:VCALENDAR`;
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
-}
-
-// Visual Floating Heart / Confetti Effect
-function createFloatingHeart() {
-  const heart = document.createElement("div");
-  heart.textContent = "💖";
-  heart.style.position = "fixed";
-  heart.style.left = Math.random() * 80 + 10 + "vw";
-  heart.style.bottom = "10px";
-  heart.style.fontSize = "2rem";
-  heart.style.zIndex = "10000";
-  heart.style.transition = "transform 3s ease-out, opacity 3s ease-out";
-  document.body.appendChild(heart);
-
-  setTimeout(() => {
-    heart.style.transform = "translateY(-80vh) scale(1.5)";
-    heart.style.opacity = "0";
-  }, 50);
-
-  setTimeout(() => {
-    heart.remove();
-  }, 3100);
-}
-
-function triggerConfetti() {
-  for (let i = 0; i < 20; i++) {
-    setTimeout(createFloatingHeart, i * 150);
-  }
 }
